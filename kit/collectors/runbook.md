@@ -29,6 +29,8 @@ tables the numbers land in), and artifact 04 (the method behind each data layer)
 
 From `kit/collectors/`:
 
+Commands follow the three-line form in `../../SETUP.md` (interpreter, working directory, invocation); the working directory is this folder.
+
 ```
 python3 dryrun.py            # fill-map + source-gap list + coverage check
 python3 dryrun.py --check    # coverage check only (exit 0 pass, 1 fail)

@@ -107,6 +107,8 @@ Running the script with no flag runs `dry_run()`, which needs no token and no
 network. It prints the status, the required plan and scope, the token env-var
 name (never a value), and the map slice this adapter would fill. Run:
 
+Commands follow the three-line form in `../../SETUP.md` (interpreter, working directory, invocation); the working directory is this folder.
+
 ```
 python3 figma_adoption_adapter.py            # credential-free dry-run
 python3 figma_adoption_adapter.py --live     # gated: refuses until STATUS=active

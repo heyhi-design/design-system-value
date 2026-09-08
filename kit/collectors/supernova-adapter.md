@@ -102,6 +102,8 @@ Both transforms return rows keyed to the target and are directly testable.
 Running the script with no flag runs `dry_run()`, which needs no token and no
 network:
 
+Commands follow the three-line form in `../../SETUP.md` (interpreter, working directory, invocation); the working directory is this folder.
+
 ```
 python3 supernova_adapter.py            # credential-free dry-run
 python3 supernova_adapter.py --live     # gated: refuses until STATUS=active

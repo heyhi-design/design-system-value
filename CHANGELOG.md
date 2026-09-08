@@ -1,6 +1,17 @@
 <!-- classification: unclassified; generic release, no internal references permitted (see scripts/check-no-internal-refs.sh) -->
 # Changelog
 
+## 0.3.1 (2026-09-08)
+
+Packaging only; no artifact content changed.
+
+- Added `SETUP.md`: requirements, install, the three-line command form, layout, the after-you-change checklist, the mirror rule, rights.
+- Added `scripts/smoke.sh`: one command that runs every credential-free check (collectors dry-run and gated adapters, populate contract and both sample payloads, token contrast gate, JSON validity, relative-link resolution, manifest, genericity scan).
+- Added `scripts/manifest.sh` and `MANIFEST.txt` (path, size, SHA-256 for every file; the check fails in both directions).
+- Added `scripts/check-links.py` (every relative Markdown link and asset path must resolve).
+- Added `docs/assets/README.md` stating the contact sheets' terms in one place.
+- Collector runbooks now point at the command form in `SETUP.md`.
+
 ## 0.3 (2026-09-08)
 
 Every kit document reviewed and upgraded in place against its own design-method discipline, generic throughout (no worked example; judgment slots stay empty behind named gates):

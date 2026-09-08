@@ -2,7 +2,7 @@
 title: Design System Value Kit
 subtitle: The artifacts a team uses to measure, show, and defend a design system's value, generic and ready to adapt
 date: 2026-09-01
-status: v0.3; every artifact is usable as-is and marked where judgment is required
+status: v0.3 content (release 0.3.1 packaging; see ../CHANGELOG.md); every artifact is usable as-is and marked where judgment is required
 classification: unclassified
 derived_from:
   - docs/making-the-case-for-a-design-system.md (the field guide)

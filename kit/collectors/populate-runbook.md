@@ -53,6 +53,8 @@ Two sample payloads ship with the kit, both fictional design systems:
 
 From `kit/collectors/`:
 
+Commands follow the three-line form in `../../SETUP.md` (interpreter, working directory, invocation); the working directory is this folder.
+
 ```
 python3 populate_screens.py --check                          # structural coverage: every slot bound, no contract error
 python3 populate_screens.py --data sample-data.json          # resolved {screen: {slot: string}} + source_gaps

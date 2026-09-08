@@ -32,6 +32,8 @@ what those two sources can and cannot supply.
 
 ## Start here
 
+Commands follow the three-line form in `../../SETUP.md` (interpreter, working directory, invocation); the working directory is this folder.
+
 ```
 python3 dryrun.py            # what fills from where, and what stays a source-gap
 python3 dryrun.py --check    # assert every metric and ledger row is classified
