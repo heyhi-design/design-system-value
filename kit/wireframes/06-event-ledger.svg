@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820"><style>text{font-family:Helvetica,Arial,sans-serif;fill:#222}.h{font-size:22px;font-weight:bold}.s{font-size:13px;fill:#666}.l{font-size:12px;fill:#444}.n{font-size:44px;font-weight:bold}.m{font-size:20px;font-weight:bold}.box{fill:#fff;stroke:#bbb}.bar{fill:#3a7bd5}.chip{fill:#e6f4ea;stroke:#8fcf9f}.dark{fill:#f3f3f1;stroke:#bbb}</style>
+<rect width="1200" height="820" fill="#fafaf8"/>
+<text x="40" y="50" class="h">Event and proof ledger</text>
+<text x="40" y="76" class="s">Filter: [All] [Rebrand] [Theme] [Remediation] [Migration] [Framework]   · open events (1) · published cards (7) · studies (1) · duplication ledger (3 items)</text>
+<rect x="40" y="100" width="1120" height="120" fill="#fff8e6" stroke="#e8c96a"/>
+<text x="56" y="126" class="s">OPEN · Accessibility remediation, Admin console · started 2026-08-18</text>
+<text x="56" y="152" class="l">Last time: 410 h (2025 audit fix tickets; baseline_kind: recorded)   ·   Capture plan: DS-A11Y tag in tracker; weekly log by S. Lindqvist   ·   Before images: 4 taken</text>
+<text x="56" y="178" class="l">Confounders listed: new QA vendor; two engineers joined mid-way</text>
+<text x="56" y="204" class="s">M4(b) v1 · closes when the remediation ends</text>
+<rect x="40" y="240" width="1120" height="330" class="box"/>
+<rect x="64" y="262" width="300" height="200" class="dark"/><text x="74" y="282" class="l">BEFORE · Checkout summary · 2026-06-02</text>
+<rect x="380" y="262" width="300" height="200" class="dark"/><text x="390" y="282" class="l">AFTER · Checkout summary · 2026-07-12</text>
+<text x="710" y="270" class="s">THEME · Dark theme rollout · 2026-06-03 to 2026-07-11</text>
+<text x="710" y="300" class="l">LAST TIME   1,140 h   source: 2024 theme project timesheets (baseline recorded)</text>
+<text x="710" y="324" class="l">THIS TIME     190 h   source: DS-THEME tag, 4 repos</text>
+<text x="710" y="362" class="m">saved 810 to 950 h</text>
+<text x="710" y="388" class="l">≈ $69k to $81k at $85/h loaded · cost avoidance (M4 method b)</text>
+<text x="710" y="418" class="l">What else changed: 12% fewer surfaces in scope (pessimistic figure removes it)</text>
+<text x="710" y="448" class="l">“We changed 40 tokens and shipped in a sprint.” L. Pineda, Staff Engineer, Checkout</text>
+<text x="64" y="500" class="s">M4(b) v1 · Owner A. Rivera · Published 2026-07-20 · 3 screens captured · [Copy card image] [Add to deck]</text>
+<text x="64" y="545" class="s">Cards feed M4(b) only · never multiplied across the organization · pessimistic subtracts the confounders' plausible effect</text>
+<rect x="40" y="590" width="1120" height="70" class="box"/>
+<text x="56" y="618" class="s">REBRAND · Wordmark and color refresh · 2026-03 · saved 1,900 to 2,400 h · baseline recorded · published 2026-04-30 · ▸ expand</text>
+<rect x="40" y="670" width="1120" height="70" class="box"/>
+<text x="56" y="698" class="s">TASK STUDY · engineering · n = 8, 3 tasks · median time 44% lower (range 31 to 52 across tasks) · quality scores equal · 2026-05 · M4(a) · ▸ report</text>
+<text x="40" y="800" class="s">Low-fidelity wireframe · numbers illustrative and shared with screens 1, 2, 7 · design-system-value-kit 03 / screen 6</text>
+</svg>

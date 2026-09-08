@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><style>text{font-family:Helvetica,Arial,sans-serif;fill:#222}.h{font-size:22px;font-weight:bold}.s{font-size:13px;fill:#666}.l{font-size:12px;fill:#444}.n{font-size:44px;font-weight:bold}.m{font-size:20px;font-weight:bold}.box{fill:#fff;stroke:#bbb}.bar{fill:#3a7bd5}.chip{fill:#e6f4ea;stroke:#8fcf9f}.dark{fill:#f3f3f1;stroke:#bbb}</style>
+<rect width="1200" height="900" fill="#fafaf8"/>
+<text x="40" y="50" class="h">Team view · August 2026</text>
+<text x="40" y="76" class="s">Sort by: [Team] [Product] [Eng manager] [Design manager]   Platform: [All, one row per platform] [Web] [iOS] [Android]   Method: pixel   Period: [28d]   [Quadrant ▢]</text>
+<rect x="40" y="100" width="1120" height="36" fill="#eeeeea" stroke="#bbb"/>
+<g class="l" font-size="12">
+<text x="52" y="124">TEAM · PLATFORM</text><text x="250" y="124">COVERAGE M1</text><text x="470" y="124">OVERRIDE M2</text><text x="590" y="124">MIGRATION M3</text><text x="720" y="124">ENGAGE M6</text><text x="830" y="124">SATISF. M8</text><text x="930" y="124">LEVEL</text><text x="1010" y="124">OWNER</text>
+</g>
+<rect x="40" y="150" width="1120" height="48" fill="#fff" stroke="#e2e2de"/>
+<text x="52" y="180" class="l">Checkout · web</text>
+<rect x="250" y="168" width="150" height="12" fill="#e4e4e0"/><rect x="250" y="168" width="123" height="12" class="bar"/><text x="408" y="180" class="l">82% ▲3</text>
+<text x="470" y="180" class="l">4.1%</text><text x="590" y="180" class="l">91%</text><text x="720" y="180" class="l">88%</text><text x="830" y="180" class="l">4.3</text><text x="930" y="180" class="l">L3 ○L4</text><text x="1010" y="180" class="l">A. Rivera</text>
+<rect x="40" y="198" width="1120" height="48" fill="#f6f6f3" stroke="#e2e2de"/>
+<text x="52" y="228" class="l">Mobile app · iOS</text>
+<rect x="250" y="216" width="150" height="12" fill="#e4e4e0"/><rect x="250" y="216" width="96" height="12" class="bar"/><text x="408" y="228" class="l">64% ▲6</text>
+<text x="470" y="228" class="l">7.8%</text><text x="590" y="228" class="l">55%</text><text x="720" y="228" class="l">79%</text><text x="830" y="228" class="l">4.0</text><text x="930" y="228" class="l">L2 ○L3</text><text x="1010" y="228" class="l">J. Okafor</text>
+<rect x="40" y="246" width="1120" height="48" fill="#fff" stroke="#e2e2de"/>
+<text x="52" y="276" class="l">Mobile app · Android</text>
+<text x="250" y="276" class="s">not instrumented</text>
+<text x="470" y="276" class="l">—</text><text x="590" y="276" class="l">—</text><text x="720" y="276" class="l">71%</text><text x="830" y="276" class="l">3.8</text><text x="930" y="276" class="l">L1 ○L2</text><text x="1010" y="276" class="l">J. Okafor</text>
+<rect x="40" y="294" width="1120" height="48" fill="#f6f6f3" stroke="#e2e2de"/>
+<text x="52" y="324" class="l">Admin console · web</text>
+<rect x="250" y="312" width="150" height="12" fill="#e4e4e0"/><rect x="250" y="312" width="61" height="12" class="bar"/><text x="408" y="324" class="l">41% ▼17</text>
+<text x="470" y="324" class="l">14.2%</text><text x="590" y="324" class="l">20%</text><text x="720" y="324" class="l">48%</text><text x="830" y="324" class="l">3.1</text><text x="930" y="324" class="l">L1 ⚑</text><text x="1010" y="324" class="l">S. Lindqvist</text>
+<rect x="40" y="342" width="1120" height="48" fill="#fff" stroke="#e2e2de"/>
+<text x="52" y="372" class="l">Marketing site · web</text>
+<rect x="250" y="360" width="150" height="12" fill="#e4e4e0"/><rect x="250" y="360" width="114" height="12" class="bar"/><text x="408" y="372" class="l">76% ▲1</text>
+<text x="470" y="372" class="l">3.0%</text><text x="590" y="372" class="l">100%</text><text x="720" y="372" class="l">86%</text><text x="830" y="372" class="l">4.5</text><text x="930" y="372" class="l">L4 (new)</text><text x="1010" y="372" class="l">M. Chen</text>
+<rect x="40" y="390" width="1120" height="48" fill="#f6f6f3" stroke="#e2e2de"/>
+<text x="52" y="420" class="l">Support tools · web</text>
+<rect x="250" y="408" width="150" height="12" fill="#e4e4e0"/><rect x="250" y="408" width="33" height="12" class="bar"/><text x="408" y="420" class="l">22% —</text>
+<text x="470" y="420" class="l">21%</text><text x="590" y="420" class="l">—</text><text x="720" y="420" class="l">—</text><text x="830" y="420" class="l">—</text><text x="930" y="420" class="l">L0</text><text x="1010" y="420" class="l">unowned ⚑</text>
+<text x="40" y="468" class="s">⚑ open breach or unowned (links to the feed) · “not instrumented” shown instead of 0 · ○ committed next level · rows expand to product › route · Download CSV · Definitions ↗</text>
+<rect x="40" y="498" width="1120" height="330" class="box"/>
+<text x="56" y="526" class="s">ADOPTION × ENGAGEMENT (toggle) · adoption split at 60% coverage, engagement split at 60% composite</text>
+<line x1="330" y1="538" x2="330" y2="808" stroke="#ccc"/><line x1="100" y1="673" x2="560" y2="673" stroke="#ccc"/>
+<text x="110" y="556" class="l">At risk · high adoption, low engagement</text>
+<text x="340" y="556" class="l">Healthy partners · using it and shaping it</text>
+<text x="110" y="693" class="l">Unreached or resistant · low, low</text>
+<text x="340" y="693" class="l">Emerging · engaged before adopting</text>
+<text x="130" y="613" class="s">(none this period)</text>
+<circle cx="500" cy="578" r="7" fill="#3a7bd5"/><text x="512" y="582" class="l">Checkout (82 / 88)</text>
+<circle cx="470" cy="613" r="7" fill="#3a7bd5"/><text x="482" y="617" class="l">Marketing (76 / 86)</text>
+<circle cx="420" cy="643" r="7" fill="#3a7bd5"/><text x="432" y="647" class="l">Mobile iOS (64 / 79)</text>
+<circle cx="400" cy="738" r="7" fill="none" stroke="#3a7bd5" stroke-width="2"/><text x="412" y="742" class="l">Mobile Android (not instrumented / 71)</text>
+<circle cx="200" cy="738" r="7" fill="#e0a030"/><text x="212" y="742" class="l">Admin console (41 / 48) ⚑</text>
+<circle cx="150" cy="778" r="7" fill="none" stroke="#d9534f" stroke-width="2"/><text x="162" y="782" class="l">Support tools (22 / no data)</text>
+<text x="620" y="568" class="l">Recommended action per cell:</text>
+<text x="620" y="593" class="l">At risk → working session; check the overrides trend</text>
+<text x="620" y="618" class="l">Emerging → pair on first migration; assign a champion</text>
+<text x="620" y="643" class="l">Unreached → find an owner before any adoption ask</text>
+<text x="620" y="668" class="l">Healthy → invite to contribute; feature in release notes</text>
+<text x="40" y="880" class="s">Low-fidelity wireframe · numbers illustrative and shared with screens 1, 6, 7 and artifact 09 · design-system-value-kit 03 / screen 2</text>
+</svg>
