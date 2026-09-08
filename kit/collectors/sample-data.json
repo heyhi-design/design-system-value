@@ -1,0 +1,76 @@
+{
+  "_comment": "Sample data payload for a placeholder design system, used to demonstrate the populate-from-data generator with no credentials. This is a fictional design system (Meridian), not any real one. It carries the values a fully-instrumented system would have collected from its own sources (the collectors for the design side, plus code-side, runtime, survey, and finance instrumentation for the rest). Replace this file with a payload assembled for your own design system: the live adapters emit the design-side rows, and the source-gap rows are filled from your code scans, production sampler, issue tracker, survey, and finance data (see metric-source-map.md).",
+  "design_system": {
+    "name": "Meridian Design System",
+    "flagship_product": "Meridian Web",
+    "period_label": "May 2026",
+    "owner": "T. Okafor",
+    "as_of": "2026-06-01 06:00",
+    "definitions_url": "/design-system/metrics",
+    "data_location": "BI › Design System › Executive",
+    "team_count": 18
+  },
+  "metrics": {
+    "M1": {
+      "value_pct": 54.7,
+      "baseline_pct": 31.0,
+      "target_pct": 75,
+      "target_date": "Nov",
+      "delta_arrow": "▲",
+      "delta_pts": 5.2,
+      "trend_caption": "six-period trend (28-day periods): Dec → May"
+    },
+    "M9": { "value": "$52k", "sub": "target ≤ $60k · owner FIN" },
+    "M2": { "value": "4.2%", "sub": "target ≤ 6% · owner ENG" },
+    "M5": { "value": "0.4 / 1.6", "sub": "per release · on vs off system" },
+    "M6": { "value": "79%", "sub": "office hours + contribution + support" }
+  },
+  "proof": {
+    "event": "Spacing token migration",
+    "window": "2026-03-04 to 2026-04-15",
+    "before": "Search · 2026-03-03",
+    "after": "Search · 2026-04-16",
+    "last_time": "920 h",
+    "last_source": "2025 layout timesheets",
+    "this_time": "260 h",
+    "this_source": "DS-SPACING tag, 3 repos",
+    "saved": "560 to 700 h",
+    "dollarized": "≈ $48k to $60k at $86/h loaded · cost avoidance (M4b)",
+    "quote": "“We reskinned every list in two days.” R. Adeyemi, Staff Eng"
+  },
+  "not_counting": [
+    "· Onboarding time for 6 new engineers (no baseline yet)",
+    "· Design QA hours on system surfaces (tracking starts next quarter)",
+    "· Brand-consistency effects on trust metrics"
+  ],
+  "risk": {
+    "a11y_line": "Automated a11y pass rate on system surfaces: 93%, up 5 pts (not a conformance claim)",
+    "keyperson_line": "Key-person: 1 of 4 critical areas has no named backup",
+    "breach_line": "Breach (M1): Partner portal coverage 61% to 44% over 28 days, since May 3 · owner D. Cho · open in the feed"
+  },
+  "decision": {
+    "ask": "Approve a two-sprint token migration for the Partner portal (8 eng-days).",
+    "if_no": "If no: the portal stays on legacy spacing and the November target applies to the web app only."
+  },
+  "teams": [
+    { "team": "Web app",        "coverage": 88, "cov_suffix": "",   "override": "3.4%", "defects": "0.3", "engagement": "86%", "owner": "RA" },
+    { "team": "Marketing site", "coverage": 81, "cov_suffix": "",   "override": "5.2%", "defects": "0.5", "engagement": "78%", "owner": "KO" },
+    { "team": "Mobile app",     "coverage": 70, "cov_suffix": "",   "override": "6.8%", "defects": "0.7", "engagement": "75%", "owner": "MP" },
+    { "team": "Help center",    "coverage": 64, "cov_suffix": "",   "override": "7.5%", "defects": "1.0", "engagement": "71%", "owner": "DE" },
+    { "team": "Growth",         "coverage": 59, "cov_suffix": "",   "override": "9.9%", "defects": "0.6", "engagement": "73%", "owner": "JL" },
+    { "team": "Partner portal", "coverage": 44, "cov_suffix": " ▼", "override": "9.4%", "defects": "1.3", "engagement": "68%", "owner": "DC" }
+  ],
+  "events": [
+    { "event": "Spacing token migration", "last_time": "920 h", "this_time": "260 h", "saved": "560–700 h",       "method": "DS-SPACING tag" },
+    { "event": "Icon set unification",    "last_time": "280 h", "this_time": "120 h", "saved": "160 h",           "method": "estimate + tickets" },
+    { "event": "Focus-state remediation", "last_time": "520 h", "this_time": "180 h", "saved": "340 h",           "method": "ticket delta" },
+    { "event": "Router upgrade",          "last_time": "—",     "this_time": "—",     "saved": "instrument first", "method": "open" }
+  ],
+  "feed": [
+    { "kind": "BREACH",       "flag": "NEEDS DECISION", "headline": "Partner portal coverage 61% to 44% over 28 days", "subline": "May 3 · owner D. Cho · since May 3" },
+    { "kind": "CONTRIBUTION", "headline": "Mobile app added 4 components to the system",        "subline": "Apr 28 · +3 contributors this month" },
+    { "kind": "PROOF",        "headline": "Spacing token migration closed: saved 560 to 700 h", "subline": "Apr 20 · published to the ledger" },
+    { "kind": "DEFINITION",   "headline": "M1 coverage v1 to v2: method change, labeled break",  "subline": "Apr 12 · two periods before the series resumes" },
+    { "kind": "SPONSOR",      "headline": "VP Product attended release review",                  "subline": "Apr 5 · 2 of the last 3 reviews" }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "_comment": "A second, distinct placeholder design system (Atlas), to show the generator generalizes across design systems and to exercise the source-gap path. Atlas has NOT instrumented defects (M5): metrics.M5 is omitted, every team's defects is null, and the M5-sourced a11y risk line is omitted. The generator renders each of those slots as a visible placeholder and reports them as run-time source-gaps; it never invents a number. Everything else is a fully-formed but different design system than the primary sample.",
+  "design_system": {
+    "name": "Atlas Design System",
+    "flagship_product": "Atlas Console",
+    "period_label": "Q1 2026",
+    "owner": "P. Nakamura",
+    "as_of": "2026-04-02 07:00",
+    "definitions_url": "/design-system/metrics",
+    "data_location": "BI › Design System › Executive",
+    "team_count": 11
+  },
+  "metrics": {
+    "M1": {
+      "value_pct": 61.4,
+      "baseline_pct": 40.0,
+      "target_pct": 80,
+      "target_date": "Sep",
+      "delta_arrow": "▲",
+      "delta_pts": 3.8,
+      "trend_caption": "six-period trend (28-day periods): Oct → Mar"
+    },
+    "M9": { "value": "$44k", "sub": "target ≤ $50k · owner FIN" },
+    "M2": { "value": "5.5%", "sub": "target ≤ 7% · owner ENG" },
+    "M6": { "value": "72%", "sub": "office hours + contribution + support" }
+  },
+  "proof": {
+    "event": "Button consolidation",
+    "window": "2026-01-06 to 2026-02-14",
+    "before": "Signup · 2026-01-05",
+    "after": "Signup · 2026-02-15",
+    "last_time": "410 h",
+    "last_source": "2024 form timesheets",
+    "this_time": "150 h",
+    "this_source": "DS-BTN tag, 2 repos",
+    "saved": "220 to 300 h",
+    "dollarized": "≈ $19k to $26k at $88/h loaded · cost avoidance (M4b)",
+    "quote": "“One component replaced nine.” S. Varga, Staff Eng"
+  },
+  "not_counting": [
+    "· Support-ticket deflection from clearer empty states",
+    "· Time saved in design review (no baseline yet)",
+    "· Reduced onboarding for contractors"
+  ],
+  "risk": {
+    "keyperson_line": "Key-person: 2 of 6 critical areas have no named backup",
+    "breach_line": "Breach (M1): Reports coverage 55% to 39% over 28 days, since Mar 1 · owner E. Blomqvist · open in the feed"
+  },
+  "decision": {
+    "ask": "Fund a defects-instrumentation spike (issue-tracker labels + CI a11y checks, 6 eng-days).",
+    "if_no": "If no: the defects column stays a source-gap and the risk story stays qualitative."
+  },
+  "teams": [
+    { "team": "Console",     "coverage": 84, "cov_suffix": "",   "override": "4.0%", "defects": null, "engagement": "83%", "owner": "SV" },
+    { "team": "Docs site",   "coverage": 77, "cov_suffix": "",   "override": "5.8%", "defects": null, "engagement": "80%", "owner": "PN" },
+    { "team": "Billing",     "coverage": 66, "cov_suffix": "",   "override": "6.1%", "defects": null, "engagement": "76%", "owner": "AK" },
+    { "team": "Onboarding",  "coverage": 61, "cov_suffix": "",   "override": "8.3%", "defects": null, "engagement": "70%", "owner": "LM" },
+    { "team": "Admin",       "coverage": 52, "cov_suffix": "",   "override": "10%",  "defects": null, "engagement": "69%", "owner": "TR" },
+    { "team": "Reports",     "coverage": 39, "cov_suffix": " ▼", "override": "12%",  "defects": null, "engagement": "64%", "owner": "EB" }
+  ],
+  "events": [
+    { "event": "Button consolidation", "last_time": "410 h", "this_time": "150 h", "saved": "220–300 h",       "method": "DS-BTN tag" },
+    { "event": "Color token cleanup",  "last_time": "240 h", "this_time": "90 h",  "saved": "150 h",           "method": "estimate + tickets" },
+    { "event": "Form field overhaul",  "last_time": "380 h", "this_time": "160 h", "saved": "220 h",           "method": "ticket delta" },
+    { "event": "Grid system rewrite",  "last_time": "—",     "this_time": "—",     "saved": "instrument first", "method": "open" }
+  ],
+  "feed": [
+    { "kind": "BREACH",       "flag": "NEEDS DECISION", "headline": "Reports coverage 55% to 39% over 28 days",     "subline": "Mar 1 · owner E. Blomqvist · since Mar 1" },
+    { "kind": "CONTRIBUTION", "headline": "Billing added 2 components to the system",       "subline": "Feb 24 · +1 contributor this month" },
+    { "kind": "PROOF",        "headline": "Button consolidation closed: saved 220 to 300 h", "subline": "Feb 18 · published to the ledger" },
+    { "kind": "DEFINITION",   "headline": "M2 override rule tightened: arbitrary values now counted", "subline": "Feb 9 · applies from this period" },
+    { "kind": "SPONSOR",      "headline": "Design director attended planning",             "subline": "Feb 2 · 3 of the last 3 sessions" }
+  ]
+}
