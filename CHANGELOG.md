@@ -1,6 +1,14 @@
 <!-- classification: unclassified; generic release, no internal references permitted (see scripts/check-no-internal-refs.sh) -->
 # Changelog
 
+## 0.3.3 (2026-09-08)
+
+Packaging only; no artifact content changed.
+
+- Added `.github/workflows/smoke.yml`: in a standalone copy of this repository (the mirror), `scripts/smoke.sh` runs on every push to the default branch and on every pull request, on the hosted Linux runner, five-minute cap, no network past the checkout, no secrets. The job is named `smoke` so it can be a required status check.
+- `scripts/manifest.sh` also ignores a `.git` *file* (the pointer a secondary checkout carries), so the manifest check passes there as well as in a clone.
+- `SETUP.md` § If you are reading this in a mirror now describes the sync: the upstream owner overwrites the mirror's default branch from upstream history, so a change opened against the mirror is lost on the next sync; the layout table lists the workflow.
+
 ## 0.3.2 (2026-09-08)
 
 The design-tool template becomes reproducible. No artifact content changed.

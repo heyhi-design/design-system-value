@@ -52,6 +52,7 @@ The scripts assume their own folder as the working directory because they import
 | `scripts/manifest.sh` | Writes or checks `MANIFEST.txt` |
 | `scripts/check-links.py` | Resolves every relative Markdown link and asset path |
 | `scripts/check-no-internal-refs.sh` | The genericity scan; binding on every change |
+| `.github/workflows/smoke.yml` | Runs `scripts/smoke.sh` on every push to the default branch and every pull request when this repository stands alone (the mirror); job name `smoke`, five-minute cap, no network past the checkout |
 
 ## After you change something
 
@@ -61,7 +62,7 @@ The scripts assume their own folder as the working directory because they import
 
 ## If you are reading this in a mirror
 
-The canonical source of this repository is its upstream monorepo. A mirror is derived from it one way and is overwritten on every sync. Do not open changes against the mirror; make them upstream and re-sync.
+The canonical source of this repository is its upstream monorepo. A mirror is derived from it one way: the upstream owner splits this folder's history out of the monorepo's default branch, proves the split tree with `scripts/smoke.sh`, and force-pushes it to the mirror's default branch, tagging it on request with the version the `CHANGELOG.md` head names. Every sync overwrites the mirror, so a change opened against the mirror is lost on the next sync. Do not open changes against the mirror; make them upstream and re-sync. The mirror's `smoke` workflow (`.github/workflows/smoke.yml`) runs the same check on the hosted runner after each sync, so a green check on the default branch means the synced tree passed.
 
 ## Rights
 
