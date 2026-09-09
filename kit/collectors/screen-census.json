@@ -1,22 +1,34 @@
 {
-  "note": "Per-target census of the four reference-template screens (exec one-pager, team view, event ledger, leading feed). For every slot in screen-data-bindings.json it records the text-node id in a specific target file, plus the component internals the scorecard tiles and the delta chip expose. Node ids are file-specific: regenerate this file for a new target with the design tool's get_metadata (see populate-runbook.md). The target file key is supplied at apply time as config, never stored here.",
+  "note": "Per-target census of the four reference-template screens (exec one-pager, team view, event ledger, leading feed). For every slot in screen-data-bindings.json it records the text-node id in a specific target file, plus the component internals the scorecard tiles and the delta chip expose. Node ids are file-specific: regenerate this file for a new target by running figma/census-walk.js in the design tool and joining its result with collectors/census_from_walk.py (see populate-runbook.md). The target file key is supplied at apply time as config, never stored here. Every slot also records `text`, the string the file showed when the census was taken, so `populate_screens.py --restore-template` can return the file to that state; on a fresh template copy those are the template's own example strings.",
   "generated": "2026-09-08",
   "schema": {
-    "slots": "slot id -> { node: '<id>', text: '<current string, pre-populate>' }",
-    "tile_slots": "slot id -> { instance: '<instance id>', role: 'label|value|sub' } (the tile is a component instance; the apply resolves its TEXT descendants in document order [label, value, sub])",
-    "chip_slots": "slot id -> { instance: '<instance id>', role: 'value' } (single TEXT descendant)"
+    "slots": "slot id -> { node: '<id>', text: '<string at census time>' }",
+    "tile_slots": "slot id -> { instance: '<instance id>', role: 'label|value|sub', text: '<string at census time>' } (the tile is a component instance; the apply resolves its TEXT descendants in document order [label, value, sub])",
+    "chip_slots": "slot id -> { instance: '<instance id>', role: 'value', text: '<string at census time>' } (single TEXT descendant)"
   },
   "components": {
     "stat_tile": {
       "component": "5:4",
-      "text_nodes_in_order": ["label", "value", "sub"],
-      "text_node_ids_on_component": ["5:5", "5:6", "5:8"],
+      "text_nodes_in_order": [
+        "label",
+        "value",
+        "sub"
+      ],
+      "text_node_ids_on_component": [
+        "5:5",
+        "5:6",
+        "5:8"
+      ],
       "note": "A Stat tile instance exposes three TEXT descendants in document order: label, value, sub. A sparkline vector sits between value and sub and is not text."
     },
     "delta_chip": {
       "component": "5:2",
-      "text_nodes_in_order": ["value"],
-      "text_node_ids_on_component": ["5:3"],
+      "text_nodes_in_order": [
+        "value"
+      ],
+      "text_node_ids_on_component": [
+        "5:3"
+      ],
       "note": "A Delta chip instance exposes one TEXT descendant."
     }
   },
@@ -25,157 +37,557 @@
       "frame": "6:2",
       "name": "Screen 1 - Exec one-pager",
       "slots": {
-        "s1_title":            { "node": "6:4",  "text": "Design System health report · August 2026" },
-        "s1_meta":             { "node": "6:5",  "text": "Owner: A. Rivera · Definitions ↗ · Data ↗ · Numbers as of 2026-09-01 06:00" },
-        "s1_m1_label":         { "node": "6:8",  "text": "COVERAGE OF WHAT USERS SEE (M1)" },
-        "s1_m1_value":         { "node": "6:10", "text": "68.3%" },
-        "s1_m1_range":         { "node": "6:13", "text": "baseline 48.2% → now 68.3% → target 80% (Dec)" },
-        "s1_trend_caption":    { "node": "6:16", "text": "six-period trend (28-day periods): Mar → Aug" },
-        "s1_proof_title":      { "node": "7:25", "text": "PROOF · Dark theme rollout · 2026-06-03 to 2026-07-11" },
-        "s1_proof_before":     { "node": "7:28", "text": "BEFORE · Checkout · 2026-06-02" },
-        "s1_proof_after":      { "node": "7:30", "text": "AFTER · Checkout · 2026-07-12" },
-        "s1_proof_lasttime":   { "node": "7:32", "text": "LAST TIME 1,140 h — source: 2024 theme timesheets" },
-        "s1_proof_thistime":   { "node": "7:33", "text": "THIS TIME 190 h — source: DS-THEME tag, 4 repos" },
-        "s1_proof_saved":      { "node": "7:34", "text": "saved 810 to 950 h" },
-        "s1_proof_dollar":     { "node": "7:35", "text": "≈ $69k to $81k at $85/h loaded · cost avoidance (M4b)" },
-        "s1_proof_quote":      { "node": "7:36", "text": "“We changed 40 tokens and shipped in a sprint.” L. Pineda, Staff Eng" },
-        "s1_notcount_title":   { "node": "9:21", "text": "WHAT WE ARE NOT COUNTING" },
-        "s1_notcount_1":       { "node": "9:22", "text": "· Onboarding time for 9 new engineers (no baseline yet)" },
-        "s1_notcount_2":       { "node": "9:23", "text": "· QA hours on system-built surfaces (tracking starts Q4)" },
-        "s1_notcount_3":       { "node": "9:24", "text": "· Brand-consistency effects on trust metrics" },
-        "s1_risk_title":       { "node": "9:26", "text": "RISK AND BREACHES" },
-        "s1_risk_a11y":        { "node": "9:27", "text": "Automated a11y pass rate on system surfaces: 96%, up 3 pts (not a conformance claim)" },
-        "s1_risk_keyperson":   { "node": "9:28", "text": "Key-person: 2 of 5 critical areas have no named backup" },
-        "s1_risk_breach":      { "node": "9:29", "text": "Breach (M1): Admin console coverage 58% to 41% over 28 days, since Aug 2 · owner S. Lindqvist · open in the feed" },
-        "s1_decision_title":   { "node": "9:31", "text": "THE DECISION" },
-        "s1_decision_ask":     { "node": "9:32", "text": "Hold current headcount through Q1; approve the Android coverage instrumentation (10 eng-days)." },
-        "s1_decision_ifno":    { "node": "9:33", "text": "If no: Android stays unmeasured; the 80% target applies to web only and the December read-out will say so." },
-        "s1_footer":           { "node": "9:34", "text": "Definitions: /design-system/metrics · Data: BI › Design System › Executive · Method notes attached · Screen 1 of 11" }
+        "s1_title": {
+          "node": "6:4",
+          "text": "Design System health report · August 2026"
+        },
+        "s1_meta": {
+          "node": "6:5",
+          "text": "Owner: A. Rivera · Definitions ↗ · Data ↗ · Numbers as of 2026-09-01 06:00"
+        },
+        "s1_m1_label": {
+          "node": "6:8",
+          "text": "COVERAGE OF WHAT USERS SEE (M1)"
+        },
+        "s1_m1_value": {
+          "node": "6:10",
+          "text": "68.3%"
+        },
+        "s1_m1_range": {
+          "node": "6:13",
+          "text": "baseline 48.2% → now 68.3% → target 80% (Dec)"
+        },
+        "s1_trend_caption": {
+          "node": "6:16",
+          "text": "six-period trend (28-day periods): Mar → Aug"
+        },
+        "s1_proof_title": {
+          "node": "7:25",
+          "text": "PROOF · Dark theme rollout · 2026-06-03 to 2026-07-11"
+        },
+        "s1_proof_before": {
+          "node": "7:28",
+          "text": "BEFORE · Checkout · 2026-06-02"
+        },
+        "s1_proof_after": {
+          "node": "7:30",
+          "text": "AFTER · Checkout · 2026-07-12"
+        },
+        "s1_proof_lasttime": {
+          "node": "7:32",
+          "text": "LAST TIME 1,140 h — source: 2024 theme timesheets"
+        },
+        "s1_proof_thistime": {
+          "node": "7:33",
+          "text": "THIS TIME 190 h — source: DS-THEME tag, 4 repos"
+        },
+        "s1_proof_saved": {
+          "node": "7:34",
+          "text": "saved 810 to 950 h"
+        },
+        "s1_proof_dollar": {
+          "node": "7:35",
+          "text": "≈ $69k to $81k at $85/h loaded · cost avoidance (M4b)"
+        },
+        "s1_proof_quote": {
+          "node": "7:36",
+          "text": "“We changed 40 tokens and shipped in a sprint.” L. Pineda, Staff Eng"
+        },
+        "s1_notcount_title": {
+          "node": "9:21",
+          "text": "WHAT WE ARE NOT COUNTING"
+        },
+        "s1_notcount_1": {
+          "node": "9:22",
+          "text": "· Onboarding time for 9 new engineers (no baseline yet)"
+        },
+        "s1_notcount_2": {
+          "node": "9:23",
+          "text": "· QA hours on system-built surfaces (tracking starts Q4)"
+        },
+        "s1_notcount_3": {
+          "node": "9:24",
+          "text": "· Brand-consistency effects on trust metrics"
+        },
+        "s1_risk_title": {
+          "node": "9:26",
+          "text": "RISK AND BREACHES"
+        },
+        "s1_risk_a11y": {
+          "node": "9:27",
+          "text": "Automated a11y pass rate on system surfaces: 96%, up 3 pts (not a conformance claim)"
+        },
+        "s1_risk_keyperson": {
+          "node": "9:28",
+          "text": "Key-person: 2 of 5 critical areas have no named backup"
+        },
+        "s1_risk_breach": {
+          "node": "9:29",
+          "text": "Breach (M1): Admin console coverage 58% to 41% over 28 days, since Aug 2 · owner S. Lindqvist · open in the feed"
+        },
+        "s1_decision_title": {
+          "node": "9:31",
+          "text": "THE DECISION"
+        },
+        "s1_decision_ask": {
+          "node": "9:32",
+          "text": "Hold current headcount through Q1; approve the Android coverage instrumentation (10 eng-days)."
+        },
+        "s1_decision_ifno": {
+          "node": "9:33",
+          "text": "If no: Android stays unmeasured; the 80% target applies to web only and the December read-out will say so."
+        },
+        "s1_footer": {
+          "node": "9:34",
+          "text": "Definitions: /design-system/metrics · Data: BI › Design System › Executive · Method notes attached · Screen 1 of 11"
+        }
       },
       "tile_slots": {
-        "s1_tile_m9_label": { "instance": "7:4",  "role": "label" },
-        "s1_tile_m9_value": { "instance": "7:4",  "role": "value" },
-        "s1_tile_m9_sub":   { "instance": "7:4",  "role": "sub" },
-        "s1_tile_m2_label": { "instance": "7:9",  "role": "label" },
-        "s1_tile_m2_value": { "instance": "7:9",  "role": "value" },
-        "s1_tile_m2_sub":   { "instance": "7:9",  "role": "sub" },
-        "s1_tile_m5_label": { "instance": "7:14", "role": "label" },
-        "s1_tile_m5_value": { "instance": "7:14", "role": "value" },
-        "s1_tile_m5_sub":   { "instance": "7:14", "role": "sub" },
-        "s1_tile_m6_label": { "instance": "7:19", "role": "label" },
-        "s1_tile_m6_value": { "instance": "7:19", "role": "value" },
-        "s1_tile_m6_sub":   { "instance": "7:19", "role": "sub" }
+        "s1_tile_m9_label": {
+          "instance": "7:4",
+          "role": "label",
+          "text": "COST PER TEAM (M9)"
+        },
+        "s1_tile_m9_value": {
+          "instance": "7:4",
+          "role": "value",
+          "text": "$41k"
+        },
+        "s1_tile_m9_sub": {
+          "instance": "7:4",
+          "role": "sub",
+          "text": "target ≤ $45k · owner FIN"
+        },
+        "s1_tile_m2_label": {
+          "instance": "7:9",
+          "role": "label",
+          "text": "OVERRIDE RATE (M2)"
+        },
+        "s1_tile_m2_value": {
+          "instance": "7:9",
+          "role": "value",
+          "text": "8.1%"
+        },
+        "s1_tile_m2_sub": {
+          "instance": "7:9",
+          "role": "sub",
+          "text": "target ≤ 5% · owner JO"
+        },
+        "s1_tile_m5_label": {
+          "instance": "7:14",
+          "role": "label",
+          "text": "DEFECTS ON VS OFF (M5)"
+        },
+        "s1_tile_m5_value": {
+          "instance": "7:14",
+          "role": "value",
+          "text": "0.4 / 1.9"
+        },
+        "s1_tile_m5_sub": {
+          "instance": "7:14",
+          "role": "sub",
+          "text": "per release · target ≤ 0.5 on"
+        },
+        "s1_tile_m6_label": {
+          "instance": "7:19",
+          "role": "label",
+          "text": "ENGAGEMENT (M6)"
+        },
+        "s1_tile_m6_value": {
+          "instance": "7:19",
+          "role": "value",
+          "text": "88%"
+        },
+        "s1_tile_m6_sub": {
+          "instance": "7:19",
+          "role": "sub",
+          "text": "3-mo avg 82.7 · target ≥ 80%"
+        }
       },
       "chip_slots": {
-        "s1_m1_delta": { "instance": "6:11", "role": "value" }
+        "s1_m1_delta": {
+          "instance": "6:11",
+          "role": "value",
+          "text": "▲ +2.1 pts"
+        }
       }
     },
     "screen_2": {
       "frame": "10:19",
       "name": "Screen 2 - Team view",
       "slots": {
-        "s2_title":     { "node": "10:21", "text": "Team view · coverage by consuming team" },
-        "s2_subtitle":  { "node": "10:22", "text": "Sorted by coverage · 22 teams · breach flagged · Screen 2 of 11" },
-        "s2_h_team":    { "node": "10:25", "text": "TEAM" },
-        "s2_h_cov":     { "node": "10:26", "text": "COVERAGE" },
-        "s2_h_over":    { "node": "10:27", "text": "OVERRIDE" },
-        "s2_h_def":     { "node": "10:28", "text": "DEFECTS" },
-        "s2_h_eng":     { "node": "10:29", "text": "ENGAGEMENT" },
-        "s2_h_owner":   { "node": "10:30", "text": "OWNER" },
-        "s2_r1_team":   { "node": "10:32", "text": "Checkout" },
-        "s2_r1_cov":    { "node": "10:33", "text": "90%" },
-        "s2_r1_over":   { "node": "10:34", "text": "3.1%" },
-        "s2_r1_def":    { "node": "10:35", "text": "0.2" },
-        "s2_r1_eng":    { "node": "10:36", "text": "88%" },
-        "s2_r1_owner":  { "node": "10:37", "text": "LP" },
-        "s2_r2_team":   { "node": "10:39", "text": "Storefront" },
-        "s2_r2_cov":    { "node": "10:40", "text": "85%" },
-        "s2_r2_over":   { "node": "10:41", "text": "5.0%" },
-        "s2_r2_def":    { "node": "10:42", "text": "0.3" },
-        "s2_r2_eng":    { "node": "10:43", "text": "82%" },
-        "s2_r2_owner":  { "node": "10:44", "text": "AR" },
-        "s2_r3_team":   { "node": "10:46", "text": "Mobile web" },
-        "s2_r3_cov":    { "node": "10:47", "text": "73%" },
-        "s2_r3_over":   { "node": "10:48", "text": "6.4%" },
-        "s2_r3_def":    { "node": "10:49", "text": "0.6" },
-        "s2_r3_eng":    { "node": "10:50", "text": "80%" },
-        "s2_r3_owner":  { "node": "10:51", "text": "MC" },
-        "s2_r4_team":   { "node": "10:53", "text": "Support" },
-        "s2_r4_cov":    { "node": "10:54", "text": "68%" },
-        "s2_r4_over":   { "node": "10:55", "text": "7.2%" },
-        "s2_r4_def":    { "node": "10:56", "text": "0.9" },
-        "s2_r4_eng":    { "node": "10:57", "text": "74%" },
-        "s2_r4_owner":  { "node": "10:58", "text": "DK" },
-        "s2_r5_team":   { "node": "10:60", "text": "Marketing" },
-        "s2_r5_cov":    { "node": "10:61", "text": "62%" },
-        "s2_r5_over":   { "node": "10:62", "text": "11%" },
-        "s2_r5_def":    { "node": "10:63", "text": "0.4" },
-        "s2_r5_eng":    { "node": "10:64", "text": "77%" },
-        "s2_r5_owner":  { "node": "10:65", "text": "JO" },
-        "s2_r6_team":   { "node": "10:67", "text": "Admin console" },
-        "s2_r6_cov":    { "node": "10:68", "text": "41% ▼" },
-        "s2_r6_over":   { "node": "10:69", "text": "9.1%" },
-        "s2_r6_def":    { "node": "10:70", "text": "1.2" },
-        "s2_r6_eng":    { "node": "10:71", "text": "71%" },
-        "s2_r6_owner":  { "node": "10:72", "text": "SL" }
+        "s2_title": {
+          "node": "10:21",
+          "text": "Team view · coverage by consuming team"
+        },
+        "s2_subtitle": {
+          "node": "10:22",
+          "text": "Sorted by coverage · 22 teams · breach flagged · Screen 2 of 11"
+        },
+        "s2_h_team": {
+          "node": "10:25",
+          "text": "TEAM"
+        },
+        "s2_h_cov": {
+          "node": "10:26",
+          "text": "COVERAGE"
+        },
+        "s2_h_over": {
+          "node": "10:27",
+          "text": "OVERRIDE"
+        },
+        "s2_h_def": {
+          "node": "10:28",
+          "text": "DEFECTS"
+        },
+        "s2_h_eng": {
+          "node": "10:29",
+          "text": "ENGAGEMENT"
+        },
+        "s2_h_owner": {
+          "node": "10:30",
+          "text": "OWNER"
+        },
+        "s2_r1_team": {
+          "node": "10:32",
+          "text": "Checkout"
+        },
+        "s2_r1_cov": {
+          "node": "10:33",
+          "text": "90%"
+        },
+        "s2_r1_over": {
+          "node": "10:34",
+          "text": "3.1%"
+        },
+        "s2_r1_def": {
+          "node": "10:35",
+          "text": "0.2"
+        },
+        "s2_r1_eng": {
+          "node": "10:36",
+          "text": "88%"
+        },
+        "s2_r1_owner": {
+          "node": "10:37",
+          "text": "LP"
+        },
+        "s2_r2_team": {
+          "node": "10:39",
+          "text": "Storefront"
+        },
+        "s2_r2_cov": {
+          "node": "10:40",
+          "text": "85%"
+        },
+        "s2_r2_over": {
+          "node": "10:41",
+          "text": "5.0%"
+        },
+        "s2_r2_def": {
+          "node": "10:42",
+          "text": "0.3"
+        },
+        "s2_r2_eng": {
+          "node": "10:43",
+          "text": "82%"
+        },
+        "s2_r2_owner": {
+          "node": "10:44",
+          "text": "AR"
+        },
+        "s2_r3_team": {
+          "node": "10:46",
+          "text": "Mobile web"
+        },
+        "s2_r3_cov": {
+          "node": "10:47",
+          "text": "73%"
+        },
+        "s2_r3_over": {
+          "node": "10:48",
+          "text": "6.4%"
+        },
+        "s2_r3_def": {
+          "node": "10:49",
+          "text": "0.6"
+        },
+        "s2_r3_eng": {
+          "node": "10:50",
+          "text": "80%"
+        },
+        "s2_r3_owner": {
+          "node": "10:51",
+          "text": "MC"
+        },
+        "s2_r4_team": {
+          "node": "10:53",
+          "text": "Support"
+        },
+        "s2_r4_cov": {
+          "node": "10:54",
+          "text": "68%"
+        },
+        "s2_r4_over": {
+          "node": "10:55",
+          "text": "7.2%"
+        },
+        "s2_r4_def": {
+          "node": "10:56",
+          "text": "0.9"
+        },
+        "s2_r4_eng": {
+          "node": "10:57",
+          "text": "74%"
+        },
+        "s2_r4_owner": {
+          "node": "10:58",
+          "text": "DK"
+        },
+        "s2_r5_team": {
+          "node": "10:60",
+          "text": "Marketing"
+        },
+        "s2_r5_cov": {
+          "node": "10:61",
+          "text": "62%"
+        },
+        "s2_r5_over": {
+          "node": "10:62",
+          "text": "11%"
+        },
+        "s2_r5_def": {
+          "node": "10:63",
+          "text": "0.4"
+        },
+        "s2_r5_eng": {
+          "node": "10:64",
+          "text": "77%"
+        },
+        "s2_r5_owner": {
+          "node": "10:65",
+          "text": "JO"
+        },
+        "s2_r6_team": {
+          "node": "10:67",
+          "text": "Admin console"
+        },
+        "s2_r6_cov": {
+          "node": "10:68",
+          "text": "41% ▼"
+        },
+        "s2_r6_over": {
+          "node": "10:69",
+          "text": "9.1%"
+        },
+        "s2_r6_def": {
+          "node": "10:70",
+          "text": "1.2"
+        },
+        "s2_r6_eng": {
+          "node": "10:71",
+          "text": "71%"
+        },
+        "s2_r6_owner": {
+          "node": "10:72",
+          "text": "SL"
+        }
       }
     },
     "screen_6": {
       "frame": "12:19",
       "name": "Screen 6 - Event ledger",
       "slots": {
-        "s6_title":     { "node": "12:21", "text": "Event ledger · hours before and after" },
-        "s6_subtitle":  { "node": "12:22", "text": "Each row is a natural experiment instrumented in advance · Screen 6 of 11" },
-        "s6_h_event":   { "node": "12:25", "text": "EVENT" },
-        "s6_h_last":    { "node": "12:26", "text": "LAST TIME" },
-        "s6_h_this":    { "node": "12:27", "text": "THIS TIME" },
-        "s6_h_saved":   { "node": "12:28", "text": "SAVED" },
-        "s6_h_method":  { "node": "12:29", "text": "METHOD" },
-        "s6_r1_event":  { "node": "12:31", "text": "Dark theme rollout" },
-        "s6_r1_last":   { "node": "12:32", "text": "1,140 h" },
-        "s6_r1_this":   { "node": "12:33", "text": "190 h" },
-        "s6_r1_saved":  { "node": "12:34", "text": "810–950 h" },
-        "s6_r1_method": { "node": "12:35", "text": "DS-THEME tag" },
-        "s6_r2_event":  { "node": "12:37", "text": "Spacing overhaul" },
-        "s6_r2_last":   { "node": "12:38", "text": "320 h" },
-        "s6_r2_this":   { "node": "12:39", "text": "140 h" },
-        "s6_r2_saved":  { "node": "12:40", "text": "180 h" },
-        "s6_r2_method": { "node": "12:41", "text": "estimate + tickets" },
-        "s6_r3_event":  { "node": "12:43", "text": "A11y remediation" },
-        "s6_r3_last":   { "node": "12:44", "text": "600 h" },
-        "s6_r3_this":   { "node": "12:45", "text": "210 h" },
-        "s6_r3_saved":  { "node": "12:46", "text": "390 h" },
-        "s6_r3_method": { "node": "12:47", "text": "ticket delta" },
-        "s6_r4_event":  { "node": "12:49", "text": "Framework upgrade" },
-        "s6_r4_last":   { "node": "12:50", "text": "—" },
-        "s6_r4_this":   { "node": "12:51", "text": "—" },
-        "s6_r4_saved":  { "node": "12:52", "text": "instrument first" },
-        "s6_r4_method": { "node": "12:53", "text": "open" },
-        "s6_footer":    { "node": "12:54", "text": "Method: hours from timesheets and tagged commits · pessimistic to optimistic range · Screen 6 of 11" }
+        "s6_title": {
+          "node": "12:21",
+          "text": "Event ledger · hours before and after"
+        },
+        "s6_subtitle": {
+          "node": "12:22",
+          "text": "Each row is a natural experiment instrumented in advance · Screen 6 of 11"
+        },
+        "s6_h_event": {
+          "node": "12:25",
+          "text": "EVENT"
+        },
+        "s6_h_last": {
+          "node": "12:26",
+          "text": "LAST TIME"
+        },
+        "s6_h_this": {
+          "node": "12:27",
+          "text": "THIS TIME"
+        },
+        "s6_h_saved": {
+          "node": "12:28",
+          "text": "SAVED"
+        },
+        "s6_h_method": {
+          "node": "12:29",
+          "text": "METHOD"
+        },
+        "s6_r1_event": {
+          "node": "12:31",
+          "text": "Dark theme rollout"
+        },
+        "s6_r1_last": {
+          "node": "12:32",
+          "text": "1,140 h"
+        },
+        "s6_r1_this": {
+          "node": "12:33",
+          "text": "190 h"
+        },
+        "s6_r1_saved": {
+          "node": "12:34",
+          "text": "810–950 h"
+        },
+        "s6_r1_method": {
+          "node": "12:35",
+          "text": "DS-THEME tag"
+        },
+        "s6_r2_event": {
+          "node": "12:37",
+          "text": "Spacing overhaul"
+        },
+        "s6_r2_last": {
+          "node": "12:38",
+          "text": "320 h"
+        },
+        "s6_r2_this": {
+          "node": "12:39",
+          "text": "140 h"
+        },
+        "s6_r2_saved": {
+          "node": "12:40",
+          "text": "180 h"
+        },
+        "s6_r2_method": {
+          "node": "12:41",
+          "text": "estimate + tickets"
+        },
+        "s6_r3_event": {
+          "node": "12:43",
+          "text": "A11y remediation"
+        },
+        "s6_r3_last": {
+          "node": "12:44",
+          "text": "600 h"
+        },
+        "s6_r3_this": {
+          "node": "12:45",
+          "text": "210 h"
+        },
+        "s6_r3_saved": {
+          "node": "12:46",
+          "text": "390 h"
+        },
+        "s6_r3_method": {
+          "node": "12:47",
+          "text": "ticket delta"
+        },
+        "s6_r4_event": {
+          "node": "12:49",
+          "text": "Framework upgrade"
+        },
+        "s6_r4_last": {
+          "node": "12:50",
+          "text": "—"
+        },
+        "s6_r4_this": {
+          "node": "12:51",
+          "text": "—"
+        },
+        "s6_r4_saved": {
+          "node": "12:52",
+          "text": "instrument first"
+        },
+        "s6_r4_method": {
+          "node": "12:53",
+          "text": "open"
+        },
+        "s6_footer": {
+          "node": "12:54",
+          "text": "Method: hours from timesheets and tagged commits · pessimistic to optimistic range · Screen 6 of 11"
+        }
       }
     },
     "screen_7": {
       "frame": "13:19",
       "name": "Screen 7 - Leading feed",
       "slots": {
-        "s7_title":       { "node": "13:21", "text": "Leading feed · what changed, what needs a decision" },
-        "s7_subtitle":    { "node": "13:22", "text": "Engagement and events move before adoption does · Screen 7 of 11" },
-        "s7_r1_kind":     { "node": "13:26", "text": "BREACH" },
-        "s7_r1_headline": { "node": "13:28", "text": "Admin console coverage 58% to 41% over 28 days" },
-        "s7_r1_subline":  { "node": "13:29", "text": "Aug 2 · owner S. Lindqvist · since Aug 2" },
-        "s7_r1_flag":     { "node": "13:31", "text": "NEEDS DECISION" },
-        "s7_r2_kind":     { "node": "13:34", "text": "CONTRIBUTION" },
-        "s7_r2_headline": { "node": "13:36", "text": "Mobile web added 3 components to the system" },
-        "s7_r2_subline":  { "node": "13:37", "text": "Jul 28 · +2 contributors this month" },
-        "s7_r3_kind":     { "node": "13:40", "text": "PROOF" },
-        "s7_r3_headline": { "node": "13:42", "text": "Dark theme rollout closed: saved 810 to 950 h" },
-        "s7_r3_subline":  { "node": "13:43", "text": "Jul 20 · published to the ledger" },
-        "s7_r4_kind":     { "node": "13:46", "text": "DEFINITION" },
-        "s7_r4_headline": { "node": "13:48", "text": "M1 coverage v1 to v2: method change, labeled break" },
-        "s7_r4_subline":  { "node": "13:49", "text": "Jul 12 · two periods before the series resumes" },
-        "s7_r5_kind":     { "node": "13:52", "text": "SPONSOR" },
-        "s7_r5_headline": { "node": "13:54", "text": "Eng director attended release review" },
-        "s7_r5_subline":  { "node": "13:55", "text": "Jul 5 · 2 of the last 3 reviews" }
+        "s7_title": {
+          "node": "13:21",
+          "text": "Leading feed · what changed, what needs a decision"
+        },
+        "s7_subtitle": {
+          "node": "13:22",
+          "text": "Engagement and events move before adoption does · Screen 7 of 11"
+        },
+        "s7_r1_kind": {
+          "node": "13:26",
+          "text": "BREACH"
+        },
+        "s7_r1_headline": {
+          "node": "13:28",
+          "text": "Admin console coverage 58% to 41% over 28 days"
+        },
+        "s7_r1_subline": {
+          "node": "13:29",
+          "text": "Aug 2 · owner S. Lindqvist · since Aug 2"
+        },
+        "s7_r1_flag": {
+          "node": "13:31",
+          "text": "NEEDS DECISION"
+        },
+        "s7_r2_kind": {
+          "node": "13:34",
+          "text": "CONTRIBUTION"
+        },
+        "s7_r2_headline": {
+          "node": "13:36",
+          "text": "Mobile web added 3 components to the system"
+        },
+        "s7_r2_subline": {
+          "node": "13:37",
+          "text": "Jul 28 · +2 contributors this month"
+        },
+        "s7_r3_kind": {
+          "node": "13:40",
+          "text": "PROOF"
+        },
+        "s7_r3_headline": {
+          "node": "13:42",
+          "text": "Dark theme rollout closed: saved 810 to 950 h"
+        },
+        "s7_r3_subline": {
+          "node": "13:43",
+          "text": "Jul 20 · published to the ledger"
+        },
+        "s7_r4_kind": {
+          "node": "13:46",
+          "text": "DEFINITION"
+        },
+        "s7_r4_headline": {
+          "node": "13:48",
+          "text": "M1 coverage v1 to v2: method change, labeled break"
+        },
+        "s7_r4_subline": {
+          "node": "13:49",
+          "text": "Jul 12 · two periods before the series resumes"
+        },
+        "s7_r5_kind": {
+          "node": "13:52",
+          "text": "SPONSOR"
+        },
+        "s7_r5_headline": {
+          "node": "13:54",
+          "text": "Eng director attended release review"
+        },
+        "s7_r5_subline": {
+          "node": "13:55",
+          "text": "Jul 5 · 2 of the last 3 reviews"
+        }
       }
     }
   }

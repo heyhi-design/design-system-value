@@ -1,6 +1,18 @@
 <!-- classification: unclassified; generic release, no internal references permitted (see scripts/check-no-internal-refs.sh) -->
 # Changelog
 
+## 0.3.2 (2026-09-08)
+
+The design-tool template becomes reproducible. No artifact content changed.
+
+- Added `kit/figma/`: a generated `build-variables.js` (from the token set, via `emit-variables-script.py`), the recorded `build-components.js` and `build-screens.js`, a read-only `census-walk.js`, and a static checker; a README with the duplicate, restore, and rebuild paths and the verification record.
+- Added `kit/collectors/census_from_walk.py`: builds `screen-census.json` for any target file from the walk, so a new copy of the template gets its census without hand-reading node ids.
+- `populate_screens.py --restore-template`: returns a populated copy to template state from the strings the census records; `--check` now also asserts every slot carries a template string. The census gained `text` for the thirteen tile and chip slots.
+- `scripts/smoke.sh` runs the design-tool static check.
+- The three run-time outputs the runbooks write (`walk.json`, `apply-plan.json`, `restore.json`) are ignored by git and by the manifest, so following a runbook does not fail the smoke check.
+- The builders read variables only from the Primitives and Semantic collections; screens are matched by exact name prefix so `Screen 1` never matches `Screen 10`; the census walk identifies instances by main component.
+- Token set unchanged; the reference template's `color/accent` dark alias was aligned to the token set (`accent/400`), which the contrast gate already assumed.
+
 ## 0.3.1 (2026-09-08)
 
 Packaging only; no artifact content changed.

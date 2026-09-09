@@ -27,7 +27,12 @@ The binding is deliberately split so the contract stays generic:
 - **`screen-data-bindings.json`** carries the slot, its source, and its template.
   It has no node ids, so it is the same for every design system.
 - **`screen-census.json`** carries, per target file, the text-node id behind each
-  slot. It is regenerated for each file with the design tool's `get_metadata`.
+  slot. It is regenerated for each file by running `../figma/census-walk.js` in the
+  design tool and joining the result with `census_from_walk.py`.
+
+25 of the 129 slots are static (`"source": "static"`): the metric labels, column
+headers, and method notes that read the same for every design system. A populate
+run changes every other slot; the static ones are part of the template by design.
 
 The two join on the slot id. A slot's meaning is stable; only its address in a
 given file changes.
@@ -98,8 +103,10 @@ defects instrumentation and shows this behavior on nine slots.
 ## Regenerating for a new target file
 
 The slot ids are stable, so `screen-data-bindings.json` is reused unchanged. Only
-`screen-census.json` is regenerated: run the design tool's `get_metadata` on the
-target file, read the text-node id behind each slot, and rewrite the census. The
+`screen-census.json` is regenerated: run `../figma/census-walk.js` on the target
+file in the design tool, save its result as `walk.json`, and run
+`python3 census_from_walk.py walk.json --out screen-census.json`. The join walks
+each screen in document order and refuses a file whose structure has drifted. The
 scorecard tiles and the delta chip are component instances; their text descendants
 resolve in document order (a tile exposes label, value, sub; a chip exposes a
 single value), which the census records under `components`.

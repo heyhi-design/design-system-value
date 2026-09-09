@@ -2,7 +2,7 @@
 title: Design System Value Kit
 subtitle: The artifacts a team uses to measure, show, and defend a design system's value, generic and ready to adapt
 date: 2026-09-01
-status: v0.3 content (release 0.3.1 packaging; see ../CHANGELOG.md); every artifact is usable as-is and marked where judgment is required
+status: v0.3 content (release 0.3.2 packaging; see ../CHANGELOG.md); every artifact is usable as-is and marked where judgment is required
 classification: unclassified
 derived_from:
   - docs/making-the-case-for-a-design-system.md (the field guide)
@@ -31,6 +31,7 @@ Nothing here is specific to any company, tool, or consultancy. Where a choice de
 | SOURCES | [Sources](SOURCES.md) | A public URL for every precedent and study the kit names, with provenance grades | Whenever a precedent is quoted |
 | PLAN | [Plan skeleton](PLAN-skeleton.md) | The execution plan that puts all of the above into motion: phases, workstreams, roles, gates, risks, and the decisions only a human can take | When someone asks "how would we run this" |
 | tokens | [Design tokens](tokens/) | A neutral, theme-able design-token set (DTCG): gray and accent ramps, semantic roles, light and dark modes, every text and interactive-UI pair WCAG-gated. Swap the ramps to rebrand. | Theming the reporting surface, or handing tokens to a design tool or code |
+| figma | [Design-tool template](figma/) | The scripts that rebuild the theme-able template in a blank file (variables from the token set, the two components, the four screens), census any copy, and restore a populated copy. Duplicate, restore, rebuild: three survival paths. | Standing the template up in a new file or team, or recovering it |
 | collectors | [Collectors](collectors/) | The operable metrics-collection layer: a metric-to-source map, a credential-free dry-run, and drop-in, credential-configurable adapter stubs for a design tool's library analytics and a documentation platform. | Pulling the fill-the-slots numbers from a real design system |
 
 ## The order that works

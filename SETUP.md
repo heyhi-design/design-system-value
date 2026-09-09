@@ -8,7 +8,8 @@ How to get this repository running on any computer, and how to prove it works be
 | Requirement | Needed for | Notes |
 |---|---|---|
 | git | cloning and syncing | Or unzip a release archive; the checks do not need git |
-| Python 3.9 or later | every script in `kit/collectors/` and `kit/tokens/` | Standard library only; there is nothing to `pip install` |
+| Python 3.9 or later | every script in `kit/collectors/`, `kit/tokens/`, `kit/figma/`, and `scripts/` | Standard library only; there is nothing to `pip install` |
+| node (optional) | the parse half of the design-tool static check | Without it `kit/figma/check-build-scripts.py` skips parsing and says so; the smoke check still passes |
 | bash and grep | `scripts/` | Any POSIX shell with GNU or BSD grep; `shasum` for the manifest (`sha256sum` on Linux is not used) |
 | PostgreSQL 17 (optional) | the artifact 02 data-model probe | The schema also reads as a portable sketch without a database |
 | A design tool account with edit access to a copy of the template (optional) | the populate step in `kit/collectors/populate-runbook.md` | Plus an MCP client that exposes the tool's script runner with its own scripting skill loaded first |
@@ -22,7 +23,7 @@ Clone the repository, or unzip a release archive, anywhere. There is no build st
 bash scripts/smoke.sh
 ```
 
-It runs every credential-free check in the kit (the collectors dry-run, the populate contract, the token contrast gate, JSON validity, relative-link resolution, the manifest, and the genericity scan) and prints `SMOKE OK`. It exits non-zero on the first failure and names the check that failed. Run it after every clone and after every edit.
+It runs every credential-free check in the kit (the collectors dry-run and gated adapters, the populate contract and both sample payloads, the token contrast gate, JSON validity, the design-tool script check, relative-link resolution, the manifest, and the genericity scan) and prints `SMOKE OK`. It exits non-zero on the first failure and names the check that failed. Run it after every clone and after every edit.
 
 ## The three-line command form
 
@@ -45,7 +46,8 @@ The scripts assume their own folder as the working directory because they import
 | `CHANGELOG.md` | Versions and what changed |
 | `MANIFEST.txt` | Path, size, and SHA-256 of every file; `scripts/manifest.sh --check` verifies it both ways |
 | `docs/` | The field guide and the visual survey; `docs/assets/README.md` states the contact sheets' terms |
-| `kit/` | The nine artifacts, the plan skeleton, the sources, `tokens/`, `collectors/`, `wireframes/` |
+| `kit/` | The nine artifacts, the plan skeleton, the sources, `tokens/`, `collectors/`, `figma/`, `wireframes/` |
+| `kit/figma/README.md` | How the design-tool template is duplicated, restored, or rebuilt from scratch |
 | `scripts/smoke.sh` | The one-command check described above |
 | `scripts/manifest.sh` | Writes or checks `MANIFEST.txt` |
 | `scripts/check-links.py` | Resolves every relative Markdown link and asset path |

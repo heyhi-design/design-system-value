@@ -21,6 +21,9 @@ Usage:
   python3 populate_screens.py --data sample-data-atlas.json
   python3 populate_screens.py --apply-plan           emit the join with the census (node ids + values) for the apply step
   python3 populate_screens.py --check                structural coverage check (exit 0 pass, 1 fail); gaps are reported, not failed
+  python3 populate_screens.py --restore-template --apply-plan --out restore.json
+                                                     apply-plan that returns every slot to the template's own example string
+                                                     (the `text` recorded per slot in the census); no payload is read
   python3 populate_screens.py --data <f> --out <f>   write the resolved map to a file
 
 Credential-free and network-free, like dryrun.py.
@@ -170,6 +173,31 @@ def census_slot_index(census):
     return index
 
 
+def restore_plan(bindings, census):
+    """Apply-plan that sets every slot back to the template's own example
+    string, as recorded per slot in the census (`text`). Reverses a populate
+    run without needing the original payload. A slot with no recorded text is
+    a census error, reported and skipped, never invented."""
+    index = census_slot_index(census)
+    texts = {}
+    for screen in census["screens"].values():
+        for grp in ("slots", "tile_slots", "chip_slots"):
+            for slot, meta in screen.get(grp, {}).items():
+                if "text" in meta:
+                    texts[slot] = meta["text"]
+    ops, missing = [], []
+    for b in bindings["bindings"]:
+        slot = b["slot"]
+        if slot not in texts:
+            missing.append(slot)
+            continue
+        op = {"slot": slot, "value": texts[slot]}
+        op.update(index[slot])
+        ops.append(op)
+    return {"target_file_key": None, "mode": "restore-template", "ops": ops,
+            "source_gaps": [], "slots_without_template_text": missing}
+
+
 def apply_plan(bindings, census, payload, placeholder):
     """Join resolved values with census node ids into an ordered op list the
     apply step consumes. The target file key is supplied at apply time, not
@@ -251,17 +279,40 @@ def main(argv):
     ap.add_argument("--placeholder", default=DEFAULT_PLACEHOLDER, help="gap placeholder (default '—')")
     ap.add_argument("--apply-plan", action="store_true", help="emit node-id apply ops for the design-tool step")
     ap.add_argument("--check", action="store_true", help="structural coverage check (exit 0/1)")
+    ap.add_argument("--restore-template", action="store_true",
+                    help="emit an apply-plan that returns every slot to the template's recorded example string")
     ap.add_argument("--out", default=None, help="write output JSON to a file instead of stdout")
     args = ap.parse_args(argv)
 
+    for label, path in (("bindings", args.bindings), ("census", args.census)):
+        if not path or not os.path.isfile(path):
+            print("error: %s file not found: %r" % (label, path), file=sys.stderr)
+            return 1
     bindings = load_json(args.bindings)
     census = load_json(args.census)
-    payload = load_json(args.data)
+    if args.restore_template:
+        payload = None  # the restore reads only the census
+    else:
+        if not args.data or not os.path.isfile(args.data):
+            print("error: data file not found: %r" % (args.data,), file=sys.stderr)
+            return 1
+        payload = load_json(args.data)
 
     if args.check:
-        return 0 if check(bindings, census, payload, args.placeholder) else 1
+        ok = check(bindings, census, payload, args.placeholder)
+        rp = restore_plan(bindings, census)
+        if rp["slots_without_template_text"]:
+            ok = False
+            print("  RESTORE: slots without template text: " + ", ".join(rp["slots_without_template_text"]))
+        else:
+            print("  restore-template: every slot carries a template string ({n})".format(n=len(rp["ops"])))
+        return 0 if ok else 1
 
-    if args.apply_plan:
+    if args.restore_template:
+        out = restore_plan(bindings, census)
+        if out["slots_without_template_text"]:
+            print("warning: no template text recorded for: " + ", ".join(out["slots_without_template_text"]), file=sys.stderr)
+    elif args.apply_plan:
         out = apply_plan(bindings, census, payload, args.placeholder)
     else:
         by_screen, gaps, _ = resolve_all(bindings, payload, args.placeholder)

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Write or check MANIFEST.txt: "<sha256>  <bytes>  <path>" for every file in the repository,
-# excluding .git, the manifest itself, editor droppings, and Python caches.
+# excluding .git, the manifest itself, editor droppings, Python caches, and the three run-time
+# outputs the runbooks write (walk.json, apply-plan.json, restore.json; also in .gitignore).
 # --check fails if a file on disk is missing from the manifest OR a manifest row has no file
 # (both directions), or if any content hash changed.
 # Usage: bash scripts/manifest.sh --write   |   bash scripts/manifest.sh --check
@@ -13,6 +14,7 @@ list_files() {
   find . -type f \
     -not -path './.git/*' -not -path '*/__pycache__/*' \
     -not -name "$MANIFEST" -not -name '.DS_Store' -not -name '*.log' -not -name '*.pyc' \
+    -not -name 'walk.json' -not -name 'apply-plan.json' -not -name 'restore.json' \
     | sed 's|^\./||' | LC_ALL=C sort
 }
 generate() {

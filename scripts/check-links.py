@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Resolve every relative Markdown link and image path in the repository.
 
-Usage: python3 scripts/check-links.py <repo-root>
+Usage: python3 scripts/check-links.py [repo-root]   (default: the repository this script lives in)
 Exit 0 when every relative target exists; exit 1 and list the broken ones otherwise.
 External links (http, https, mailto) and bare anchors (#section) are not checked.
 """
@@ -36,4 +36,4 @@ def main(root: str) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else "."))
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parents[1])))

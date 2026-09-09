@@ -84,8 +84,22 @@ its zero-raw-literals guarantee are preserved.
    the new numbers and no slot still shows the previous data.
 
 For a target file that is not the reference template, first regenerate
-`screen-census.json` against that file with the design tool's `get_metadata`, then
-resolve and apply as above. Node ids are file-specific; the slot ids are stable.
+`screen-census.json` against that file: run `../figma/census-walk.js` through the
+script runner, save its result, and `python3 census_from_walk.py walk.json --out screen-census.json`.
+Then resolve and apply as above. Node ids are file-specific; the slot ids are stable.
+
+## Restore
+
+A populated copy returns to its template state with
+
+```
+python3 populate_screens.py --restore-template --apply-plan --out restore.json
+```
+
+and the same apply step. The plan sets every slot to the string recorded as `text`
+in the census (the template's own example strings on a fresh copy). Text only:
+theming and bindings are untouched. See `../figma/README.md` for the duplicate,
+restore, and rebuild paths together.
 
 ## UPDATE or BUILD
 
@@ -105,7 +119,9 @@ There are two ways to get the screens into a target file.
 
 - A number the design system has not measured is a visible gap, never a guess.
 - The screens carry the design system's own numbers, its own team names, its own
-  proof events. Nothing from the template's example data survives a run.
+  proof events. No number, name, or event from the template's example data survives
+  a run; the 25 static slots (labels, column headers, method notes) are the same for
+  every design system and are listed in `screen-data-bindings.md`.
 - The screens are a static picture as of the run. Every number on them should
   trace to the payload, and the payload should trace to the sources in
   `metric-source-map.md`.

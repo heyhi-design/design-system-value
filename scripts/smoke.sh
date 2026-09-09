@@ -34,6 +34,9 @@ while IFS= read -r f; do
   "$PY" -c 'import json, sys; json.load(open(sys.argv[1]))' "$f" || fail "invalid JSON: ${f#$ROOT/}"
 done < <(find "$ROOT" -type f -name '*.json' -not -path '*/.git/*')
 
+step "figma: build scripts parse, emitter current, bound names exist"
+"$PY" "$ROOT/kit/figma/check-build-scripts.py" > /dev/null || fail "kit/figma/check-build-scripts.py (run it directly to see why)"
+
 step "links: every relative Markdown link and asset path resolves"
 "$PY" "$ROOT/scripts/check-links.py" "$ROOT" || fail "broken relative link (see above)"
 

@@ -29,6 +29,13 @@ what those two sources can and cannot supply.
 | `figma_adoption_adapter.py` | The Figma adapter reference script. Runs a dry-run today, a live pull once activated. |
 | `supernova_adapter.py` | The documentation-platform adapter reference script. Same shape. |
 | `dryrun.py` | The credential-free driver. Emits the fill-map and source-gap list; `--check` asserts coverage. |
+| `census_from_walk.py` | Builds `screen-census.json` for any target file from the `../figma/census-walk.js` result, joining the walk with the binding contract. |
+| `screen-data-bindings.md` / `.json` | The populate contract: every text slot on the four screens mapped to its source and display format. Generic; the same for every design system. |
+| `screen-census.json` | Per target file: the node id (and the string at census time) behind every slot. File-specific; regenerate per copy. |
+| `populate_screens.py` | The credential-free resolver: payload + contract to display strings, `--apply-plan` joins them with the census, `--check` asserts coverage, `--restore-template` returns a copy to its census strings. |
+| `figma_apply.js` | The design-tool apply step: writes the resolved strings into the target file, text only. |
+| `sample-data.json` / `sample-data-atlas.json` | Two fictional design systems' payloads: one fully instrumented, one with nine source-gaps. |
+| `populate-runbook.md` | Collect, resolve, apply: how to fill the screens with one design system's numbers, and how to restore them. |
 
 ## Start here
 
