@@ -1,6 +1,15 @@
 <!-- classification: unclassified; generic release, no internal references permitted (see scripts/check-no-internal-refs.sh) -->
 # Changelog
 
+## 0.3.4 (2026-09-09)
+
+First public release. No artifact argument, metric, screen, collector, or schema changed.
+
+- Removed the three study contact sheets (`docs/assets/`) and their README: they were crops of public pages, held for study and marked not for redistribution, so they must not ship in a public release. The survey's references to them were reworded; its pattern matrix and evidence ledger stand on their own, with every source URL in `kit/SOURCES.md`.
+- Added `LICENSE` (MIT) for the code (`kit/collectors/`, `kit/tokens/`, `kit/figma/`, `scripts/`) and `LICENSE-docs` (CC BY 4.0) for the documentation (`docs/`, `kit/*.md`). `README.md` and `SETUP.md` state the split; the copyright holder is named in the license files only.
+- `scripts/check-no-internal-refs.sh` now excludes the `LICENSE` files from the text scan, because a licensed public repository must name its copyright holder (a name the generic-reference pattern otherwise blocks).
+- Added `RUN.md`: the end-to-end live run, from a working checkout to a populated value story against a real design system (value store, collectors, census, populate, the honest gap statement).
+
 ## 0.3.3 (2026-09-08)
 
 Packaging only; no artifact content changed.

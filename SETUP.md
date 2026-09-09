@@ -43,9 +43,12 @@ The scripts assume their own folder as the working directory because they import
 |---|---|
 | `README.md` | Start here: what the repository is and the argument in five lines |
 | `SETUP.md` | This file |
+| `RUN.md` | The end-to-end live run against a real design system: value store, collectors, populate, gaps |
 | `CHANGELOG.md` | Versions and what changed |
+| `LICENSE` | MIT License; covers the code (`kit/collectors/`, `kit/tokens/`, `kit/figma/`, `scripts/`) |
+| `LICENSE-docs` | CC BY 4.0; covers the documentation (`docs/`, `kit/*.md`) |
 | `MANIFEST.txt` | Path, size, and SHA-256 of every file; `scripts/manifest.sh --check` verifies it both ways |
-| `docs/` | The field guide and the visual survey; `docs/assets/README.md` states the contact sheets' terms |
+| `docs/` | The field guide and the visual survey |
 | `kit/` | The nine artifacts, the plan skeleton, the sources, `tokens/`, `collectors/`, `figma/`, `wireframes/` |
 | `kit/figma/README.md` | How the design-tool template is duplicated, restored, or rebuilt from scratch |
 | `scripts/smoke.sh` | The one-command check described above |
@@ -64,6 +67,6 @@ The scripts assume their own folder as the working directory because they import
 
 The canonical source of this repository is its upstream monorepo. A mirror is derived from it one way: the upstream owner splits this folder's history out of the monorepo's default branch, proves the split tree with `scripts/smoke.sh`, and force-pushes it to the mirror's default branch, tagging it on request with the version the `CHANGELOG.md` head names. Every sync overwrites the mirror, so a change opened against the mirror is lost on the next sync. Do not open changes against the mirror; make them upstream and re-sync. The mirror's `smoke` workflow (`.github/workflows/smoke.yml`) runs the same check on the hosted runner after each sync, so a green check on the default branch means the synced tree passed.
 
-## Rights
+## License
 
-This repository is private. All rights reserved by the maintainer; no license is granted for redistribution. The contact sheets under `docs/assets/` carry their own terms (see the README there).
+The code — `kit/collectors/`, `kit/tokens/`, `kit/figma/`, and `scripts/` — is under the MIT License (`LICENSE`). The documentation — `docs/` and the Markdown under `kit/` — is under Creative Commons Attribution 4.0 International (CC BY 4.0; `LICENSE-docs`). Use each accordingly; attribution is required for the documentation.

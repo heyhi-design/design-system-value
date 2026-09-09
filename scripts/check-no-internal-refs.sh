@@ -11,7 +11,11 @@ BASE='heyhi|hey hi|bay design|cody clark|sheerline|cigna|myassetmap|internal use
 # by the text scan, which reads SVGs as text (grep runs with -i, so uppercase matches too).
 PATTERN="$BASE|vk-[0-9a-z]"    # text/source scan
 PATTERN_BIN="$BASE|vk-[0-9]"   # binary-asset (jpg/png/svg-byte) scan
-hits=$(grep -rniE --exclude-dir=.git --exclude=check-no-internal-refs.sh --binary-files=without-match "$PATTERN" . || true)
+# The LICENSE files name the copyright holder (a company name the BASE pattern otherwise
+# blocks). A published, licensed repository must attribute its holder, so the license files
+# are excluded from the text scan. They are standard MIT / CC BY boilerplate: no internal
+# path, client, or classification string belongs there, which keeps the exclusion safe.
+hits=$(grep -rniE --exclude-dir=.git --exclude=check-no-internal-refs.sh --exclude=LICENSE --exclude='LICENSE-*' --binary-files=without-match "$PATTERN" . || true)
 if [ -n "$hits" ]; then
   echo "Internal references found:"; echo "$hits"; exit 1
 fi

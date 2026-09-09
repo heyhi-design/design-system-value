@@ -8,8 +8,9 @@ This repository holds four things:
 | Folder | What it is | Start here if |
 |---|---|---|
 | `docs/making-the-case-for-a-design-system.md` | The field guide. What leadership looks for, what the published evidence actually supports (with provenance grades), the three-ledger measurement architecture, the story shape, and how to make the evidence retrievable by anyone. | You need to understand the problem before building anything |
-| `docs/how-value-gets-shown-to-leadership.md` | The visual survey. Dashboards, calculators, reports, and decks that render design-system value today, in design systems and in adjacent fields, with a pattern library and an eleven-screen inventory. Contact sheets of the captured screens are in `docs/assets/`. | You are designing or embedding a reporting surface |
+| `docs/how-value-gets-shown-to-leadership.md` | The visual survey. Dashboards, calculators, reports, and decks that render design-system value today, in design systems and in adjacent fields, with a pattern library and an eleven-screen inventory. | You are designing or embedding a reporting surface |
 | `SETUP.md` + `scripts/` | Requirements, install, the command form, and the one-command smoke check (`bash scripts/smoke.sh`). `MANIFEST.txt` lists every file with its hash. | You are setting this up on a new machine, or you changed something |
+| `RUN.md` | The end-to-end live run: from a working checkout to a populated value story against a real design system (stand up the value store, run the collectors, populate the screens, state the gaps). | You are running the kit against a real design system |
 | `kit/` | The Design System Value Kit. Metric definitions, a data model verified on PostgreSQL, screen specs with wireframes, an instrumentation playbook, an overlay spec, deck skeletons, protocols for events and studies, an adoption scorecard, a sources list, a 26-week plan skeleton, a neutral theme-able token set (`kit/tokens/`), an operable collectors layer (`kit/collectors/`), and the scripts that rebuild, census, and restore the design-tool template (`kit/figma/`). | You have been asked to actually do it |
 
 Everything is generic. No company, tool, or consultancy is assumed. Where a choice depends on your organization, the artifact marks it **[decision]** (a judgment someone must make) or **[fill]** (a fact someone must supply).
@@ -28,7 +29,7 @@ Read `kit/README.md`. The short version: define the cost ledger and three metric
 
 ## Provenance
 
-The evidence in the field guide carries grades: A (controlled or primary study with stated method and sample), B (first-person practitioner account with a described method), C (vendor, analyst, or self-report), D (unsourced, circulates widely), X (unverifiable or contradicted; do not cite). Every precedent the kit names has a public URL in `kit/SOURCES.md`. The contact sheets in `docs/assets/` are crops of public pages captured for study; they are not for redistribution outside this repository.
+The evidence in the field guide carries grades: A (controlled or primary study with stated method and sample), B (first-person practitioner account with a described method), C (vendor, analyst, or self-report), D (unsourced, circulates widely), X (unverifiable or contradicted; do not cite). Every precedent the kit names has a public URL in `kit/SOURCES.md`.
 
 ## Integrity check
 
@@ -40,6 +41,10 @@ bash scripts/smoke.sh
 
 To run only the genericity scan: `scripts/check-no-internal-refs.sh`. After any edit, regenerate the manifest with `bash scripts/manifest.sh --write` (see `SETUP.md`).
 
+## License
+
+The code in this repository — `kit/collectors/`, `kit/tokens/`, `kit/figma/`, and `scripts/` — is under the MIT License (see `LICENSE`). The documentation — `docs/` and the Markdown under `kit/` — is under the Creative Commons Attribution 4.0 International license (CC BY 4.0; see `LICENSE-docs`).
+
 ## Status
 
-Version 0.3.3, 2026-09-08 (0.3 content; the 0.3.1 packaging added `SETUP.md`, the smoke check, and the manifest; 0.3.2 made the design-tool template reproducible from `kit/figma/`; 0.3.3 adds the hosted-runner workflow that runs the smoke check in a standalone copy). The kit has been through a structured design-method review as a generic upgrade-in-place and now carries a neutral, theme-able design-token set (`kit/tokens/`, light and dark, WCAG-gated) and an operable collectors layer (`kit/collectors/`, credential-free dry-run plus drop-in adapter stubs); all documents have been through independent adversarial review, and the data model executes against PostgreSQL 17 with a seeded probe. See `CHANGELOG.md`.
+Version 0.3.4, 2026-09-09 (0.3 content; the 0.3.1 packaging added `SETUP.md`, the smoke check, and the manifest; 0.3.2 made the design-tool template reproducible from `kit/figma/`; 0.3.3 added the hosted-runner workflow that runs the smoke check in a standalone copy; 0.3.4 is the first public release — the three study contact sheets were removed, a `RUN.md` end-to-end guide added, and the MIT + CC BY 4.0 licenses applied). The kit has been through a structured design-method review as a generic upgrade-in-place and now carries a neutral, theme-able design-token set (`kit/tokens/`, light and dark, WCAG-gated) and an operable collectors layer (`kit/collectors/`, credential-free dry-run plus drop-in adapter stubs); all documents have been through independent adversarial review, and the data model executes against PostgreSQL 17 with a seeded probe. See `CHANGELOG.md`.

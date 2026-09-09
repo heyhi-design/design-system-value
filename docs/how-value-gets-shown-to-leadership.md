@@ -7,12 +7,11 @@ classification: unclassified
 companion_to:
   - docs/making-the-case-for-a-design-system.md (the field guide)
   - kit/ (the artifacts that act on both documents)
-assets: docs/assets/ (three labeled contact sheets)
 ---
 
 # How design-system value gets shown to leadership
 
-*The field guide answered what leadership looks for and how to make the evidence retrievable. This one collects how that evidence is actually rendered: the dashboards, calculators, one-page reports, and decks that exist today, in design systems and in the adjacent fields that solved the same problem earlier. Except where marked as described from secondary sources, every example below was captured this session from a public page (headless Chromium, 1440px viewport, scroll-through for lazy images) and cropped into three contact sheets in `docs/assets/`. The point is a pattern library and a screen inventory for a future UI, not a tool comparison.*
+*The field guide answered what leadership looks for and how to make the evidence retrievable. This one collects how that evidence is actually rendered: the dashboards, calculators, one-page reports, and decks that exist today, in design systems and in the adjacent fields that solved the same problem earlier. Except where marked as described from secondary sources, every example below was captured this session from a public page (headless Chromium, 1440px viewport, scroll-through for lazy images); the source URLs are listed in `kit/SOURCES.md`. The point is a pattern library and a screen inventory for a future UI, not a tool comparison.*
 
 > **Read this as a competitive teardown, not a leaderboard.** Sections 1 through 8 are the descriptive survey; section 9 restates the same evidence under a teardown discipline so the reading stays honest as the field moves. Three rules govern that discipline. Every presence claim cites a **dated** capture; an example described only from a secondary summary backs no presence claim (it is `UNKNOWN`, never confirmed). A pattern a capture did not confirm present is `UNKNOWN`, never read as absent, because a targeted survey capture is not a full presence sweep. And the three calls a teardown must not make for you, **how severe a gap is, what it means for your context, and what to copy**, are left as empty slots behind a named sign-off. The "worth borrowing" notes throughout sections 1 through 7 are the survey author's candidate reads, offered as input to that gated decision, not a ratified verdict.
 
@@ -37,7 +36,7 @@ Everything else in this document is evidence for those eight, plus what to avoid
 
 ---
 
-## 1. Design-system analytics products (contact sheet A)
+## 1. Design-system analytics products
 
 Vendor UIs. Useful for interaction patterns and for what the market has decided is table stakes; less useful as leadership surfaces, because most of them speak to the design-system team.
 
@@ -54,7 +53,7 @@ Also in this class but not captured: Supernova and zeroheight analytics (documen
 
 ---
 
-## 2. In-house dashboards and instruments (contact sheet B)
+## 2. In-house dashboards and instruments
 
 The teams that built their own. These are the leadership-facing surfaces, and the ones with the most transferable structure. Where the published screen is a mock or a placeholder, it says so.
 
@@ -124,11 +123,11 @@ Products as rows grouped by priority, adoption levels as columns, status and not
 
 ### 2.10 Mews, adoption in New Relic (2025; no dashboard image published)
 
-A DOM-element ratio computed from build-time markers, sampled every ten seconds in production with batching, reported in New Relic by product, team, and route. The article publishes the method and the numbers (53% and 60% on two products, a third growing about 5% a month) but no dashboard screenshot, so it is not on the contact sheets. It is the precedent for "reuse the observability tool the organization already has" on the engineering side, as Preply is with Datadog.
+A DOM-element ratio computed from build-time markers, sampled every ten seconds in production with batching, reported in New Relic by product, team, and route. The article publishes the method and the numbers (53% and 60% on two products, a third growing about 5% a month) but no dashboard screenshot, so it has no captured screen here. It is the precedent for "reuse the observability tool the organization already has" on the engineering side, as Preply is with Datadog.
 
 ---
 
-## 3. Adjacent fields and executive storytelling (contact sheet C)
+## 3. Adjacent fields and executive storytelling
 
 Fields that had to explain an internal platform to a CFO before design systems did.
 
@@ -273,7 +272,7 @@ The set is the reader's to confirm or cut. Every row carries why it is in the se
 | 9 | Forrester TEI (Forrester Decisions) | The adjacent-field executive-summary grammar | hexagon tiles, benefits-by-category, quote rail, synopsis, bar chart |
 | 10 | DX Core 4 | The cleanest counterbalanced-tile row with sparklines and a benchmark chip | four tiles + sparklines + vs-P50 chip, team table |
 
-Twelve further subjects were captured or summarized and sit in the evidence ledger (rows 11 to 27); they are candidate columns the reader can promote into the matrix. Contact sheet A vendors: Luro (11), Omlet (12), Figma Library Analytics (13), the Design System Adoption plugin (14). Sheet B builds: Onfido (15), Badoo (16), Hotmart (17), and the secondary-summary rows Delivery Hero (23), Nathan Curtis (24), Mews (25). Sheet C: Swarmia (18), Jellyfish (19), Deque (20), Supernova ROI (21), Knapsack (22), and the docs-only rows Cortex (26), OpsLevel (27).
+Twelve further subjects were captured or summarized and sit in the evidence ledger (rows 11 to 27); they are candidate columns the reader can promote into the matrix. Analytics products: Luro (11), Omlet (12), Figma Library Analytics (13), the Design System Adoption plugin (14). In-house builds: Onfido (15), Badoo (16), Hotmart (17), and the secondary-summary rows Delivery Hero (23), Nathan Curtis (24), Mews (25). Adjacent and executive: Swarmia (18), Jellyfish (19), Deque (20), Supernova ROI (21), Knapsack (22), and the docs-only rows Cortex (26), OpsLevel (27).
 
 **All rows are candidates.** The set, and which of the 27 rows become matrix columns, is the reader's call.
 
@@ -417,4 +416,4 @@ Captured as screenshots this session unless marked (s) summary-only.
 
 ---
 
-*Screens were captured for study; the contact sheets in `docs/assets/` are not for redistribution outside this repository. The screen inventory in § 6 is a starting brief, and the kit is the response to it.*
+*Screens were captured for study; the source URLs are in `kit/SOURCES.md`. The screen inventory in § 6 is a starting brief, and the kit is the response to it.*
